@@ -38,8 +38,8 @@ const header = {
 waitForElement('a.btn-download').then(downloadButton)
 
 async function downloadButton(downloadButton: Element) {
-    let span = document.getElementById('basebtn');
-    if (span == null) {
+    let btnSpan = document.getElementById('basebtn');
+    if (btnSpan == null) {
         console.log("Could not find element.")
         return
     }
@@ -64,9 +64,9 @@ async function downloadButton(downloadButton: Element) {
         let size = res.size.actual;
         downloadButton.removeAttribute('onclick');
         downloadButton.setAttribute('href', downloadLink);
-        span.textContent = `دانلود (${size})`
+        btnSpan.textContent = `دانلود (${size})`
     } catch (err) {
-        span.textContent = "خطا";
+        btnSpan.textContent = "خطا";
         downloadButton.setAttribute('href', '#');
         console.log(err);
     }
