@@ -46,8 +46,8 @@ async function downloadButton(downloadButton: Element) {
     try {
         let url: string = downloadButton.getAttribute('href')!;
         let pkg = new URL(url).searchParams.get('packageName');
-        let downloadLink = 'https://apiserver.myket.ir/v2/applications/' + pkg + '/';
-        let response = await fetch(downloadLink, {
+        let infoUrl = 'https://apiserver.myket.ir/v2/applications/' + pkg + '/';
+        let response = await fetch(infoUrl, {
             mode: 'cors',
             method: 'GET',
             headers: header
@@ -62,8 +62,18 @@ async function downloadButton(downloadButton: Element) {
             return
         }
         let size = res.size.actual;
+        let secondResponse = await fetch('https://apiserver.myket.ir/v1/applications/' + pkg +
+            '/uri/?action=start&requestedVersion=' + res.version.code +
+            '&fileType=App&lang=fa', {
+            mode: 'cors',
+            method: 'GET',
+            headers: header
+        })
+        let secondRes = await secondResponse.json()
+        console.log(secondRes);
+        if (secondRes.uri === undefined) throw new URIError("No download link.");
         downloadButton.removeAttribute('onclick');
-        downloadButton.setAttribute('href', downloadLink);
+        downloadButton.setAttribute('href', secondRes.uri);
         btnSpan.textContent = `دانلود (${size})`
     } catch (err) {
         btnSpan.textContent = "خطا";
