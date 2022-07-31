@@ -5,7 +5,7 @@ function waitForElement(selector: string): Promise<Element> {
             return resolve(document.querySelector(selector));
         }
 
-        const observer = new MutationObserver(mutations => {
+        const observer = new MutationObserver(_ => {
             if (document.querySelector(selector)) {
                 // @ts-ignore
                 resolve(document.querySelector(selector));
@@ -35,6 +35,9 @@ const header = {
     'Accept-Encoding': 'gzip'
 };
 
+const v1BaseUrl = "https://apiserver.myket.ir/v1/applications"
+const v2BaseUrl = "https://apiserver.myket.ir/v2/applications"
+
 waitForElement('a.btn-download').then(getDownloadLink)
 
 async function getDownloadLink(downloadButton: Element) {
@@ -45,39 +48,34 @@ async function getDownloadLink(downloadButton: Element) {
     }
     try {
         let url: string = downloadButton.getAttribute('href')!;
-        let pkg = new URL(url).searchParams.get('packageName');
-        let infoUrl = 'https://apiserver.myket.ir/v2/applications/' + pkg + '/';
-        let response = await fetch(infoUrl, {
+        let pkgName = new URL(url).searchParams.get('packageName');
+        let infoUrl = `${v2BaseUrl}/${pkgName}/`;
+        let infoRes = await fetch(infoUrl, {
             mode: 'cors',
             method: 'GET',
             headers: header
         })
-        if (!response.ok) {
-            console.log("Request failure")
-            return
-        }
-        let res = await response.json();
-        if (!res.price.isFree) {
+        if (!infoRes.ok) throw new Error("Request failure.")
+        let infoJson = await infoRes.json();
+        if (!infoJson.price.isFree) {
             console.log("Paid App!")
             return
         }
-        let size = res.size.actual;
-        let secondResponse = await fetch('https://apiserver.myket.ir/v1/applications/' + pkg +
-            '/uri/?action=start&requestedVersion=' + res.version.code +
-            '&fileType=App&lang=fa', {
+        let v1Res = await fetch(`${v1BaseUrl}/${pkgName}/uri/?action=start&` +
+            `requestedVersion=${infoJson.version.code}&fileType=App&lang=fa`, {
             mode: 'cors',
             method: 'GET',
             headers: header
         })
-        let secondRes = await secondResponse.json()
-        console.log(`Download link: ${secondRes.uri}`);
-        if (!secondRes.uri) throw new Error("No download link.");
-        downloadButton.removeAttribute('onclick');
-        downloadButton.setAttribute('href', secondRes.uri);
-        btnSpan.textContent = `دانلود (${size})`
+        let v1Json = await v1Res.json()
+        console.log(`Download link: ${v1Json.uri}`);
+        if (!v1Json.uri) throw new Error("No download link.");
+        downloadButton.removeAttribute("onclick");
+        downloadButton.setAttribute("href", v1Json.uri);
+        btnSpan.textContent = `دانلود (${infoJson.size.actual})`
     } catch (err) {
         btnSpan.textContent = "خطا";
-        downloadButton.setAttribute('href', '#');
+        downloadButton.setAttribute("href", "#");
         console.log(err);
     }
 }
