@@ -35,11 +35,11 @@ const header = {
     'Accept-Encoding': 'gzip'
 };
 
-waitForElement('a.btn-download').then(downloadButton)
+waitForElement('a.btn-download').then(getDownloadLink)
 
-async function downloadButton(downloadButton: Element) {
+async function getDownloadLink(downloadButton: Element) {
     let btnSpan = document.getElementById('basebtn');
-    if (btnSpan == null) {
+    if (!btnSpan) {
         console.log("Could not find element.")
         return
     }
@@ -57,7 +57,7 @@ async function downloadButton(downloadButton: Element) {
             return
         }
         let res = await response.json();
-        if (res.price.isFree == false) {
+        if (!res.price.isFree) {
             console.log("Paid App!")
             return
         }
@@ -70,8 +70,8 @@ async function downloadButton(downloadButton: Element) {
             headers: header
         })
         let secondRes = await secondResponse.json()
-        console.log(secondRes);
-        if (secondRes.uri === undefined) throw new URIError("No download link.");
+        console.log(`Download link: ${secondRes.uri}`);
+        if (!secondRes.uri) throw new Error("No download link.");
         downloadButton.removeAttribute('onclick');
         downloadButton.setAttribute('href', secondRes.uri);
         btnSpan.textContent = `دانلود (${size})`
