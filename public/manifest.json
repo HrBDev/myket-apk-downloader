@@ -1,6 +1,5 @@
 {
   "name": "Myket APK Downloader",
-  "description": "Generate download links for myket.ir Android apps",
   "version": "0.1.0",
   "manifest_version": 3,
   "content_scripts": [
