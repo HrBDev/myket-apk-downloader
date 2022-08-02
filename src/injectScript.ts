@@ -68,7 +68,7 @@ async function getDownloadLink(downloadButton: Element) {
             headers: header
         })
         let v1Json = await v1Res.json()
-        console.log(`Download link: ${v1Json.uri}`);
+        console.log(`APK Download link: ${v1Json.uri}`);
         if (!v1Json.uri) throw new Error("No download link.");
         downloadButton.removeAttribute("onclick");
         downloadButton.setAttribute("href", v1Json.uri);
