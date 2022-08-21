@@ -25,4 +25,4 @@ jobs:
     - name: Build
       run: |
         yarn install --immutable
-        npx webpack -c webpack/webpack.config.js
+        yarn run build
