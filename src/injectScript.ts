@@ -23,7 +23,7 @@ const Auth = ""
     
     
 
-const header = {
+const Header = {
     'Accept': 'application/json',
     'Myket-Version': '914',
     'Authorization': Auth,
@@ -53,7 +53,7 @@ async function getDownloadLink(downloadBtn: Element) {
         let infoRes = await fetch(infoUrl, {
             mode: 'cors',
             method: 'GET',
-            headers: header
+            headers: Header
         })
         if (!infoRes.ok) throw new Error("Request failure.")
         let infoJson = await infoRes.json();
@@ -66,7 +66,7 @@ async function getDownloadLink(downloadBtn: Element) {
         let v1Res = await fetch(v1Url, {
             mode: 'cors',
             method: 'GET',
-            headers: header
+            headers: Header
         })
         let v1Json = await v1Res.json()
         console.log(`APK Download link: ${v1Json.uri}`);
