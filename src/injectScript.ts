@@ -40,14 +40,14 @@ const v2BaseUrl = "https://apiserver.myket.ir/v2/applications"
 
 waitForElement('a.btn-download').then(getDownloadLink)
 
-async function getDownloadLink(downloadButton: Element) {
+async function getDownloadLink(downloadBtn: Element) {
     let btnSpan = document.getElementById('basebtn');
     if (!btnSpan) {
-        console.log("Could not find element.")
+        console.log("Could not find download button text element.")
         return
     }
     try {
-        let url: string = downloadButton.getAttribute('href')!;
+        let url: string = downloadBtn.getAttribute('href')!;
         let pkgName = new URL(url).searchParams.get('packageName');
         let infoUrl = `${v2BaseUrl}/${pkgName}/`;
         let infoRes = await fetch(infoUrl, {
@@ -70,12 +70,12 @@ async function getDownloadLink(downloadButton: Element) {
         let v1Json = await v1Res.json()
         console.log(`APK Download link: ${v1Json.uri}`);
         if (!v1Json.uri) throw new Error("No download link.");
-        downloadButton.removeAttribute("onclick");
-        downloadButton.setAttribute("href", v1Json.uri);
+        downloadBtn.removeAttribute("onclick");
+        downloadBtn.setAttribute("href", v1Json.uri);
         btnSpan.textContent = `دانلود (${infoJson.size.actual})`
-    } catch (err) {
+    } catch (e) {
         btnSpan.textContent = "خطا";
-        downloadButton.setAttribute("href", "#");
-        console.log(err);
+        downloadBtn.setAttribute("href", "#");
+        console.log(e);
     }
 }
