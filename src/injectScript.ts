@@ -38,7 +38,9 @@ const header = {
 const v1BaseUrl = "https://apiserver.myket.ir/v1/applications"
 const v2BaseUrl = "https://apiserver.myket.ir/v2/applications"
 
-waitForElement('a.btn-download').then(getDownloadLink)
+waitForElement('a.btn-download').then(getDownloadLink).catch(_ => {
+    console.log("Could not find download button.")
+})
 
 async function getDownloadLink(downloadBtn: Element) {
     let btnSpan = document.getElementById('basebtn');
