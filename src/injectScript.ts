@@ -1,14 +1,12 @@
 function waitForElement(selector: string): Promise<Element> {
     return new Promise<Element>(resolve => {
         if (document.querySelector(selector)) {
-            // @ts-ignore
-            return resolve(document.querySelector(selector));
+            return resolve(document.querySelector(selector)!);
         }
 
         const observer = new MutationObserver(_ => {
             if (document.querySelector(selector)) {
-                // @ts-ignore
-                resolve(document.querySelector(selector));
+                resolve(document.querySelector(selector)!);
                 observer.disconnect();
             }
         });
@@ -49,8 +47,8 @@ async function getDownloadLink(downloadBtn: Element) {
         return
     }
     try {
-        let url: string = downloadBtn.getAttribute('href')!;
-        let pkgName = new URL(url).searchParams.get('packageName');
+        let url: URL = new URL(downloadBtn.getAttribute('href')!);
+        let pkgName = url.searchParams.get('packageName');
         let infoUrl = `${v2BaseUrl}/${pkgName}/`;
         let infoRes = await fetch(infoUrl, {
             mode: 'cors',
@@ -63,8 +61,9 @@ async function getDownloadLink(downloadBtn: Element) {
             console.log("Paid App!")
             return
         }
-        let v1Res = await fetch(`${v1BaseUrl}/${pkgName}/uri/?action=start&` +
-            `requestedVersion=${infoJson.version.code}&fileType=App&lang=fa`, {
+        let v1Url = `${v1BaseUrl}/${pkgName}/uri/?action=start&` +
+            `requestedVersion=${infoJson.version.code}&fileType=App&lang=fa`
+        let v1Res = await fetch(v1Url, {
             mode: 'cors',
             method: 'GET',
             headers: header
