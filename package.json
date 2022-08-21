@@ -1,9 +1,9 @@
 {
-  "name": "myket-apk-downloader",
+  "name": "myket-apk-downloader-webpack",
   "version": "0.1.0",
-  "description": "",
+  "description": "Dependencies and configuration for building the extension",
   "scripts": {
-    "build": "webpack --config webpack/webpack.config.js"
+    "build": "webpack -c webpack/webpack.config.js"
   },
   "keywords": [],
   "author": "HrBDev",
