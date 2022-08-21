@@ -41,34 +41,34 @@ waitForElement('a.btn-download').then(getDownloadLink).catch(_ => {
 })
 
 async function getDownloadLink(downloadBtn: Element) {
-    let btnSpan = document.getElementById('basebtn');
+    const btnSpan = document.getElementById('basebtn');
     if (!btnSpan) {
         console.log("Could not find download button text element.")
         return
     }
     try {
-        let url: URL = new URL(downloadBtn.getAttribute('href')!);
-        let pkgName = url.searchParams.get('packageName');
-        let infoUrl = `${v2BaseUrl}/${pkgName}/`;
-        let infoRes = await fetch(infoUrl, {
+        const url: URL = new URL(downloadBtn.getAttribute('href')!);
+        const pkgName :string = url.searchParams.get('packageName')!;
+        const infoUrl = `${v2BaseUrl}/${pkgName}/`;
+        const infoRes = await fetch(infoUrl, {
             mode: 'cors',
             method: 'GET',
             headers: Header
         })
         if (!infoRes.ok) throw new Error("Request failure.")
-        let infoJson = await infoRes.json();
+        const infoJson = await infoRes.json();
         if (!infoJson.price.isFree) {
             console.log("Paid App!")
             return
         }
-        let v1Url = `${v1BaseUrl}/${pkgName}/uri/?action=start&` +
+        const v1Url = `${v1BaseUrl}/${pkgName}/uri/?action=start&` +
             `requestedVersion=${infoJson.version.code}&fileType=App&lang=fa`
-        let v1Res = await fetch(v1Url, {
+        const v1Res = await fetch(v1Url, {
             mode: 'cors',
             method: 'GET',
             headers: Header
         })
-        let v1Json = await v1Res.json()
+        const v1Json = await v1Res.json()
         console.log(`APK Download link: ${v1Json.uri}`);
         if (!v1Json.uri) throw new Error("No download link.");
         downloadBtn.removeAttribute("onclick");
