@@ -1,0 +1,30 @@
+{
+  "name": "Myket APK Downloader",
+  "version": "0.1.2",
+  "description": "Download Myket apps from the browser",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": [
+        "*://myket.ir/app/*"
+      ],
+      "js": [
+        "injectScript.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "https://myket.ir/app/*",
+    "https://apiserver.myket.ir/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "54.0"
+    }
+  },
+  "icons": {
+    "48": "icons/48x48.png",
+    "96": "icons/96x96.png"
+  }
+}
