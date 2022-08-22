@@ -1,9 +1,17 @@
-# build instructions
+# Requirements
 
-```
-yarn install
-yarn run build 
-```
+* Node 16.10+
+* Enable Corepack by running `corepack enable` as superuser/admin
+* yarn package manager (`npm install -g yarn`)
 
-* For chromium builds use manifest.json and delete manifest_firefox.json before archiving the dist folder.
-* For firefox builds delete manifest.json and rename manifest_firefox.json to manifest.json.
+# Build instructions
+
+ ```
+ yarn install
+ yarn run build 
+ ```
+
+* in the dist folder:
+    * For Firefox builds delete manifest.json and rename manifest_firefox.json to manifest.json.
+    * For Chromium based browser builds delete manifest_firefox.json.
+
