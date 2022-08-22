@@ -5,4 +5,5 @@ yarn install
 yarn run build 
 ```
 
-if it's a chromium build keep the manifest.json otherwise delete manifest.json and rename manifest_firefox.json to manifest.json.
+* For chromium builds use manifest.json and delete manifest_firefox.json before archiving the dist folder.
+* For firefox builds delete manifest.json and rename manifest_firefox.json to manifest.json.
