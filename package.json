@@ -7,7 +7,7 @@
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "keywords": [],
-  "author": "HrBDev",
+  "author": "Hamidreza Bayat <hamidrezabayat76@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@types/chrome": "^0.0.195",
