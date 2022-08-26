@@ -18,7 +18,7 @@ function waitForElement(selector: string): Promise<Element> {
     })
 }
 
-const Auth = ""
+declare let Auth: string
 
 const Header = {
     Accept: "application/json",

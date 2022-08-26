@@ -1,5 +1,6 @@
 const path = require("path")
 const CopyPlugin = require("copy-webpack-plugin")
+const webpack = require("webpack")
 module.exports = {
     mode: "production",
     entry: {
@@ -24,7 +25,10 @@ module.exports = {
     plugins: [
         new CopyPlugin({
             patterns: [{ from: ".", to: ".", context: "public" }]
-        })
+        }),
+        new webpack.DefinePlugin({
+            Auth: JSON.stringify("")
+        }),
     ],
     optimization: {
         minimize: true
