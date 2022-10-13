@@ -15,3 +15,8 @@
     * For Firefox builds delete manifest.json and rename manifest_firefox.json to manifest.json.
     * For Chromium based browser builds delete manifest_firefox.json.
 
+# TODO
+
+- [ ] Add Authentication flow if possible since the Auth token expires every 2 weeks
+- [ ] Add an Android API selector
+- 
