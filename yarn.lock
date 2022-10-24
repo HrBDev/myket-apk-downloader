@@ -236,20 +236,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.40.0":
-  version: 5.40.0
-  resolution: "@typescript-eslint/parser@npm:5.40.0"
+"@typescript-eslint/parser@npm:^5.41.0":
+  version: 5.41.0
+  resolution: "@typescript-eslint/parser@npm:5.41.0"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.40.0
-    "@typescript-eslint/types": 5.40.0
-    "@typescript-eslint/typescript-estree": 5.40.0
+    "@typescript-eslint/scope-manager": 5.41.0
+    "@typescript-eslint/types": 5.41.0
+    "@typescript-eslint/typescript-estree": 5.41.0
     debug: ^4.3.4
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: a8d02950dd12fcb1d19ad5f24cbfd186ca88d8a099160f93f99767896a45198a9f9bfbdd1a57c1ae50d452e6c895ae5b4d7e4623dfc87bca55a45c5ba16491f8
+  checksum: ae005b603218d540dd1c3fd1f84d7f956bfca8b15d2c42115b9fc44437cb73e8284fda62153612a20809449d563edbde968d245b6c9d27b482ad0ebc2a95947f
   languageName: node
   linkType: hard
 
@@ -260,6 +260,16 @@ __metadata:
     "@typescript-eslint/types": 5.40.0
     "@typescript-eslint/visitor-keys": 5.40.0
   checksum: 48dfb2f1a71bda5b782263e97608f1e1a2e8a89a603344af5072208be7936140af9d41483be439405c5ee379d0263555d6cc94405b187707f9ecfd7dd9821b5f
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/scope-manager@npm:5.41.0":
+  version: 5.41.0
+  resolution: "@typescript-eslint/scope-manager@npm:5.41.0"
+  dependencies:
+    "@typescript-eslint/types": 5.41.0
+    "@typescript-eslint/visitor-keys": 5.41.0
+  checksum: f588e7e7e953dfa19632b676f1287a7a4f5e9390282b103b3cf46cc28bb597c1229df2489eb687ab9285674076eb2569b821eac9b3110572d70fd230bdc5d703
   languageName: node
   linkType: hard
 
@@ -287,6 +297,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/types@npm:5.41.0":
+  version: 5.41.0
+  resolution: "@typescript-eslint/types@npm:5.41.0"
+  checksum: d7500bcc67b68032ccf19d983a69efa2750f4d82f5cc027090d2686d4e662b3a7b0b5fa55ed90710eca2528867d39964d76c207ac3c6f734505efbe21dccac7d
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/typescript-estree@npm:5.40.0":
   version: 5.40.0
   resolution: "@typescript-eslint/typescript-estree@npm:5.40.0"
@@ -302,6 +319,24 @@ __metadata:
     typescript:
       optional: true
   checksum: 8b67b8c4278f6bbd16ec521c847920c6f0ba57ec4bf148505c057aa160363852f50f9db73f42ee71ac3906940e8554e9c27686194a57f6554efcd82a8b0fa3e8
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/typescript-estree@npm:5.41.0":
+  version: 5.41.0
+  resolution: "@typescript-eslint/typescript-estree@npm:5.41.0"
+  dependencies:
+    "@typescript-eslint/types": 5.41.0
+    "@typescript-eslint/visitor-keys": 5.41.0
+    debug: ^4.3.4
+    globby: ^11.1.0
+    is-glob: ^4.0.3
+    semver: ^7.3.7
+    tsutils: ^3.21.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: cfb61b5971108807ad4b1e26e71455a0451e8b5ee06e9ae7d2e45caa8e978f0a3bb58bb877eff42a134d3ab21ad23bf138d2b829c407607e3d1fc616f0f87cc9
   languageName: node
   linkType: hard
 
@@ -329,6 +364,16 @@ __metadata:
     "@typescript-eslint/types": 5.40.0
     eslint-visitor-keys: ^3.3.0
   checksum: a11787f7e6ac7018b22848028c9116d028f89782b0ee120517f0384e9db260e3001ad897512d9c3cf15ce16073ae4c1dc7f81f29d6d40dec78b5e8c8e79f344f
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/visitor-keys@npm:5.41.0":
+  version: 5.41.0
+  resolution: "@typescript-eslint/visitor-keys@npm:5.41.0"
+  dependencies:
+    "@typescript-eslint/types": 5.41.0
+    eslint-visitor-keys: ^3.3.0
+  checksum: ff76694170d77c96d6166a1973ca11b4a6de2051e396fc3581534b3d6f574440e0a3af71f0690dfb2368bb5300a412b363c1795ac1ba1f363b1bc115550808cd
   languageName: node
   linkType: hard
 
@@ -1566,7 +1611,7 @@ __metadata:
   dependencies:
     "@types/chrome": ^0.0.197
     "@typescript-eslint/eslint-plugin": ^5.40.0
-    "@typescript-eslint/parser": ^5.40.0
+    "@typescript-eslint/parser": ^5.41.0
     copy-webpack-plugin: ^11.0.0
     eslint: ^8.25.0
     eslint-config-prettier: ^8.5.0
