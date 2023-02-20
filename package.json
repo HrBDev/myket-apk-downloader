@@ -10,7 +10,7 @@
   "author": "Hamidreza Bayat <hamidrezabayat76@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@types/chrome": "^0.0.213",
+    "@types/chrome": "^0.0.217",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
     "copy-webpack-plugin": "^11.0.0",
