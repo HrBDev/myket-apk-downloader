@@ -133,13 +133,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:^0.0.213":
-  version: 0.0.213
-  resolution: "@types/chrome@npm:0.0.213"
+"@types/chrome@npm:^0.0.226":
+  version: 0.0.226
+  resolution: "@types/chrome@npm:0.0.226"
   dependencies:
     "@types/filesystem": "*"
     "@types/har-format": "*"
-  checksum: a2ceea1f418ed7fb34c69485678fcc7c3230de28960c55af2a8d4a3afc54a52dbeeade10c8180fac35deab4a6d574a06fdb2e6ab338829bb150d607f088d1701
+  checksum: 17111041d2988382c30995906c4bd77a5f61527ba68e5c5ee8cfcd6645b0fcac65ec3759e042309ca51d12ef24222550825cd398729270dda6fd93a59c716b8f
   languageName: node
   linkType: hard
 
@@ -1582,7 +1582,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "myket-apk-downloader-webpack@workspace:."
   dependencies:
-    "@types/chrome": ^0.0.213
+    "@types/chrome": ^0.0.226
     "@typescript-eslint/eslint-plugin": ^5.52.0
     "@typescript-eslint/parser": ^5.52.0
     copy-webpack-plugin: ^11.0.0
