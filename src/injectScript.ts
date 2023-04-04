@@ -68,8 +68,13 @@ async function getAppInfo(pkgName: string) {
 
 async function getAppDownloadUrl(version: string, pkgName: string) {
     const v1Url =
-        `${v1BaseUrl}/${pkgName}/uri/?action=start&` +
-        `requestedVersion=${version}&fileType=App&lang=fa`
+        `${v1BaseUrl}/${pkgName}/uri/?` +
+        new URLSearchParams({
+            action: "start",
+            requestedVersion: version,
+            fileType: "App",
+            lang: "fa"
+        }).toString()
     const response = await fetch(v1Url, {
         mode: "cors",
         method: "GET",
