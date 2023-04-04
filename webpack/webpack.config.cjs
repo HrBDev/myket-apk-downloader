@@ -26,9 +26,6 @@ module.exports = {
         new CopyPlugin({
             patterns: [{ from: ".", to: ".", context: "public" }]
         }),
-        new webpack.DefinePlugin({
-            Auth: JSON.stringify("")
-        }),
     ],
     optimization: {
         minimize: true

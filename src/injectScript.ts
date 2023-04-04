@@ -18,12 +18,10 @@ function waitForElement(selector: string): Promise<Element> {
     })
 }
 
-declare let Auth: string
-
 const Header = {
     Accept: "application/json",
     "Myket-Version": "914",
-    Authorization: Auth,
+    Authorization: "",
     "User-Agent": "Dalvik/2.1.0 (Linux; U; Android x.x; xxxx Build/xxxxxx)",
     Host: "apiserver.myket.ir",
     Connection: "Keep-Alive",
