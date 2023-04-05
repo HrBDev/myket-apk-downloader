@@ -10,7 +10,7 @@ const header = {
     "User-Agent": "Dalvik/2.1.0 (Linux; U; Android x.x; xxxx Build/xxxxxx)",
     Host: "apiserver.myket.ir",
     Connection: "Keep-Alive",
-    "Accept-Encoding": "gzip"
+    "Accept-Encoding": "gzip",
 }
 
 const authBody = {
@@ -32,7 +32,7 @@ const authBody = {
     manufacturer: "HMD Global",
     product: "Onyx_00WW",
     supportedAbis: ["arm64-v8a", "armeabi-v7a", "armeabi"],
-    uuid: "235f746f-3a40-44b7-97b4-01cac934df6d"
+    uuid: "235f746f-3a40-44b7-97b4-01cac934df6d",
 }
 
 export { v1BaseUrl, v2BaseUrl, authUrl, header, authBody }

@@ -15,7 +15,7 @@ function waitForElement(selector: string): Promise<Element> {
 
         observer.observe(document.body, {
             childList: true,
-            subtree: true
+            subtree: true,
         })
     })
 }
@@ -28,7 +28,7 @@ async function getAuth() {
         mode: "cors",
         headers: header,
         method: "POST",
-        body: JSON.stringify(authBody)
+        body: JSON.stringify(authBody),
     })
     if (!response.ok) {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -47,7 +47,7 @@ async function getAppInfo(pkgName: string) {
     const response = await fetch(infoUrl, {
         mode: "cors",
         method: "GET",
-        headers: header
+        headers: header,
     })
     if (!response.ok) {
         if (response.status == 401) {
@@ -73,17 +73,22 @@ async function getAppDownloadUrl(version: string, pkgName: string) {
             action: "start",
             requestedVersion: version,
             fileType: "App",
-            lang: "fa"
+            lang: "fa",
         }).toString()
     const response = await fetch(v1Url, {
         mode: "cors",
         method: "GET",
-        headers: header
+        headers: header,
     })
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { uri }: { uri: string } = await response.json()
+    const resJson = await response.json()
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { uri }: { uri: string } = resJson
     console.log(`APK Download link: ${uri}`)
-    if (!uri) throw new Error("No download link.")
+    if (!uri) {
+        console.log(resJson)
+        throw new Error("No download link.")
+        }
     return uri
 }
 
@@ -104,6 +109,7 @@ async function getDownloadLink(downloadBtn: Element) {
         const info = await getAppInfo(pkgName)
         if (!info.price.isFree) {
             console.log("Paid App!")
+            btnSpan.textContent = "برنامه پولی!"
             return
         }
         const uri = await getAppDownloadUrl(info.version.code, pkgName)
