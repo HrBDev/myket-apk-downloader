@@ -1,6 +1,7 @@
-const v1BaseUrl = "https://apiserver.myket.ir/v1/applications"
-const v2BaseUrl = "https://apiserver.myket.ir/v2/applications"
-const authUrl = "https://apiserver.myket.ir/v1/devices/authorize/"
+const apiServerUrl = "https://apiserver.myket.ir"
+const v1BaseUrl = `${apiServerUrl}/v1/applications`
+const v2BaseUrl = `${apiServerUrl}/v2/applications`
+const authUrl = `${apiServerUrl}/v1/devices/authorize/`
 
 const header = {
     "Content-Type": "application/json",
@@ -35,4 +36,17 @@ const authBody = {
     uuid: "235f746f-3a40-44b7-97b4-01cac934df6d",
 }
 
-export { v1BaseUrl, v2BaseUrl, authUrl, header, authBody }
+const postRequestInit: RequestInit = {
+    mode: "cors",
+    headers: header,
+    method: "POST",
+    body: JSON.stringify(authBody),
+}
+
+const requestInit: RequestInit = {
+    mode: "cors",
+    method: "GET",
+    headers: header,
+}
+
+export { v1BaseUrl, v2BaseUrl, authUrl, header, requestInit, postRequestInit }

@@ -1,14 +1,27 @@
-import { authBody, authUrl, header, v1BaseUrl, v2BaseUrl } from "./constants"
+import {
+    authUrl,
+    header,
+    postRequestInit,
+    requestInit,
+    v1BaseUrl,
+    v2BaseUrl,
+} from "./constants"
+import {
+    AuthErrorResponse,
+    AuthResponse,
+    V1ApiResponse,
+    V2ApiResponse,
+} from "./models"
 
 function waitForElement(selector: string): Promise<Element> {
     return new Promise<Element>(resolve => {
         if (document.querySelector(selector)) {
-            return resolve(document.querySelector(selector)!)
+            return resolve(document.querySelector(selector) as Element)
         }
 
         const observer = new MutationObserver(_ => {
             if (document.querySelector(selector)) {
-                resolve(document.querySelector(selector)!)
+                resolve(document.querySelector(selector) as Element)
                 observer.disconnect()
             }
         })
@@ -22,33 +35,22 @@ function waitForElement(selector: string): Promise<Element> {
 
 async function getAuth() {
     if (localStorage.getItem("Auth")) {
-        header.Authorization = localStorage.getItem("Auth")!
+        header.Authorization = localStorage.getItem("Auth") as string
     }
-    const response = await fetch(authUrl, {
-        mode: "cors",
-        headers: header,
-        method: "POST",
-        body: JSON.stringify(authBody),
-    })
+    const response = await fetch(authUrl, postRequestInit)
     if (!response.ok) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const { translatedMessage }: { translatedMessage: string } =
-            await response.json()
+        const { translatedMessage } =
+            (await response.json()) as AuthErrorResponse
         throw new Error(translatedMessage ?? "Authentication key error")
     }
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { token }: { token: string } = await response.json()
+    const { token } = (await response.json()) as AuthResponse
     localStorage.setItem("Auth", token)
     return token
 }
 
 async function getAppInfo(pkgName: string) {
     const infoUrl = `${v2BaseUrl}/${pkgName}/`
-    const response = await fetch(infoUrl, {
-        mode: "cors",
-        method: "GET",
-        headers: header,
-    })
+    const response = await fetch(infoUrl, requestInit)
     if (!response.ok) {
         if (response.status == 401) {
             await getAuth()
@@ -58,12 +60,7 @@ async function getAppInfo(pkgName: string) {
         }
     }
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const info: {
-        price: { isFree: boolean }
-        size: { actual: number }
-        version: { code: string }
-    } = await response.json()
-    return info
+    return (await response.json()) as V1ApiResponse
 }
 
 async function getAppDownloadUrl(version: string, pkgName: string) {
@@ -75,30 +72,13 @@ async function getAppDownloadUrl(version: string, pkgName: string) {
             fileType: "App",
             lang: "fa",
         }).toString()
-    const response = await fetch(v1Url, {
-        mode: "cors",
-        method: "GET",
-        headers: header,
-    })
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const resJson = await response.json()
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { uri }: { uri: string } = resJson
-    console.log(resJson)
-    if (!uri) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const {
-            uriPath,
-            uriServers,
-        }: { uriPath: string; uriServers: string[] } = resJson
-        if (!uriPath) {
-            throw new Error("No download link.")
-        }
-        const uriServer =
-            uriServers[Math.floor(Math.random() * uriServers.length)]
-        console.log(`APK Download link: ${uriServer + uriPath}`)
-        return uriServer + uriPath
+    const response = await fetch(v1Url, requestInit)
+    const { uriPath, uriServers } = (await response.json()) as V2ApiResponse
+    if (!uriPath) {
+        throw new Error("No download link.")
     }
+    const uriServer = uriServers[Math.floor(Math.random() * uriServers.length)]
+    const uri = uriServer + uriPath
     console.log(`APK Download link: ${uri}`)
     return uri
 }
@@ -115,12 +95,12 @@ async function getDownloadLink(downloadBtn: Element) {
     }
     try {
         await getAuth()
-        const url: URL = new URL(downloadBtn.getAttribute("href")!)
-        const pkgName: string = url.searchParams.get("packageName")!
+        const url = new URL(downloadBtn.getAttribute("href") as string)
+        const pkgName: string = url.searchParams.get("packageName") as string
         const info = await getAppInfo(pkgName)
         if (!info.price.isFree) {
             console.log("Paid App!")
-            btnSpan.textContent = "برنامه پولی!"
+            btnSpan.textContent = "برنامه پولی است"
             return
         }
         const uri = await getAppDownloadUrl(info.version.code, pkgName)
