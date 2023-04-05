@@ -1,6 +1,6 @@
 {
   "name": "Myket APK Downloader",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Hamidreza Bayat <hamidrezabayat76@gmail.com>",
   "description": "Download Myket apps from the browser",
   "manifest_version": 3,
