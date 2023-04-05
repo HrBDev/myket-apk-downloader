@@ -84,11 +84,22 @@ async function getAppDownloadUrl(version: string, pkgName: string) {
     const resJson = await response.json()
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { uri }: { uri: string } = resJson
-    console.log(`APK Download link: ${uri}`)
+    console.log(resJson)
     if (!uri) {
-        console.log(resJson)
-        throw new Error("No download link.")
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const {
+            uriPath,
+            uriServers,
+        }: { uriPath: string; uriServers: string[] } = resJson
+        if (!uriPath) {
+            throw new Error("No download link.")
         }
+        const uriServer =
+            uriServers[Math.floor(Math.random() * uriServers.length)]
+        console.log(`APK Download link: ${uriServer + uriPath}`)
+        return uriServer + uriPath
+    }
+    console.log(`APK Download link: ${uri}`)
     return uri
 }
 
