@@ -1,13 +1,19 @@
 {
-    "compilerOptions": {
-       "strict": true,
-       "module": "ES2020",
-       "target": "ES2021",
-       "esModuleInterop": true,
-       "sourceMap": true,
-       "rootDir": "src",
-       "outDir": "dist/js",
-       "noEmitOnError": true,
-       "typeRoots": [ "node_modules/@types" ]
-    }
- }
+  "compilerOptions": {
+    "lib": [
+      "ES2021",
+      "DOM"
+    ],
+    "strict": true,
+    "module": "ES2020",
+    "target": "ES2021",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "rootDir": "src",
+    "outDir": "dist/js",
+    "noEmitOnError": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  }
+}
