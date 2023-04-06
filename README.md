@@ -2,6 +2,10 @@
 
 Reverse engineered Myket API that allows the download of APKs from the website instead of the official android app.
 
+Available
+on [Edge Addons](https://microsoftedge.microsoft.com/addons/detail/myket-apk-downloader/dpjcncnnibmchngbcpgdmacokbadibkd)
+and [Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/myket-apk-downloader-firefox/).
+
 # Requirements
 
 * Node.js 16.10+ or Install Corepack with `npm i -g corepack` on Older Node.js
