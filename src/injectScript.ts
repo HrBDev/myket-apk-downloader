@@ -33,9 +33,10 @@ function waitForElement(selector: string): Promise<Element> {
     })
 }
 
-async function getAuth() {
-    if (localStorage.getItem("Auth")) {
+async function Authenticate(invalidate = false) {
+    if (localStorage.getItem("Auth") && !invalidate) {
         header.Authorization = localStorage.getItem("Auth") as string
+        return
     }
     const response = await fetch(authUrl, postRequestInit)
     if (!response.ok) {
@@ -45,7 +46,6 @@ async function getAuth() {
     }
     const { token } = (await response.json()) as AuthResponse
     localStorage.setItem("Auth", token)
-    return token
 }
 
 async function getAppInfo(pkgName: string) {
@@ -53,7 +53,7 @@ async function getAppInfo(pkgName: string) {
     const response = await fetch(infoUrl, requestInit)
     if (!response.ok) {
         if (response.status == 401) {
-            await getAuth()
+            await Authenticate(true)
             await getAppInfo(pkgName)
         } else {
             throw new Error("Request failure.")
@@ -94,7 +94,7 @@ async function getDownloadLink(downloadBtn: Element) {
         return
     }
     try {
-        await getAuth()
+        await Authenticate()
         const url = new URL(downloadBtn.getAttribute("href") as string)
         const pkgName: string = url.searchParams.get("packageName") as string
         const info = await getAppInfo(pkgName)
