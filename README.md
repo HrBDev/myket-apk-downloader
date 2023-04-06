@@ -4,9 +4,9 @@ Reverse engineered Myket API that allows the download of APKs from the website i
 
 # Requirements
 
-* Node 16.10+
-* Enable Corepack by running `corepack enable` as superuser/admin
-* yarn package manager (`npm install -g yarn`)
+* Node.js 16.10+ or Install Corepack with `npm i -g corepack` on Older Node.js
+* Corepack (Enable by running `corepack enable` as superuser/admin)
+* yarn package manager (`corepack prepare yarn@<version> --activate`)
 
 # Build instructions
 
