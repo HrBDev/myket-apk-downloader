@@ -1,19 +1,31 @@
+/* eslint-disable */
 module.exports = {
-    env: {
-        browser: true,
-        es2021: true,
-    },
-    extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "prettier",
-    ],
-    overrides: [],
-    parser: "@typescript-eslint/parser",
+    root: true,
+    extends: ["eslint:recommended"],
+    env: { node: true, es6: true, mocha: true },
     parserOptions: {
-        project: "./tsconfig.json",
+        ecmaVersion: 8,
     },
-    plugins: ["@typescript-eslint"],
-    rules: {},
+    overrides: [
+        {
+            files: ["**/*.ts", "**/*.tsx"],
+            env: {
+                browser: true,
+                es2021: true,
+            },
+            extends: [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:@typescript-eslint/recommended-requiring-type-checking",
+                "prettier",
+            ],
+            overrides: [],
+            parser: "@typescript-eslint/parser",
+            parserOptions: {
+                project: "./tsconfig.json",
+            },
+            plugins: ["@typescript-eslint"],
+            rules: {},
+        },
+    ],
 }
