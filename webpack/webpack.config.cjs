@@ -1,6 +1,6 @@
 const path = require("path")
 const CopyPlugin = require("copy-webpack-plugin")
-const webpack = require("webpack")
+
 module.exports = {
     mode: "production",
     entry: {
