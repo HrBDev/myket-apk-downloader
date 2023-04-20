@@ -12,6 +12,7 @@ import {
     V1ApiResponse,
     V2ApiResponse,
 } from "./models"
+import { getTokenFromLocalStorage, saveTokenToLocalStorage } from "./utils"
 
 function waitForElement(selector: string): Promise<Element> {
     return new Promise<Element>(resolve => {
@@ -33,11 +34,7 @@ function waitForElement(selector: string): Promise<Element> {
     })
 }
 
-async function Authenticate(invalidate = false) {
-    if (localStorage.getItem("Auth") && !invalidate) {
-        header.Authorization = localStorage.getItem("Auth") as string
-        return
-    }
+async function getAuthToken() {
     const response = await fetch(authUrl, postRequestInit)
     if (!response.ok) {
         const { translatedMessage } =
@@ -45,7 +42,7 @@ async function Authenticate(invalidate = false) {
         throw new Error(translatedMessage ?? "Authentication key error")
     }
     const { token } = (await response.json()) as AuthResponse
-    localStorage.setItem("Auth", token)
+    return token
 }
 
 async function getAppInfo(pkgName: string) {
@@ -53,7 +50,8 @@ async function getAppInfo(pkgName: string) {
     const response = await fetch(infoUrl, requestInit)
     if (!response.ok) {
         if (response.status == 401) {
-            await Authenticate(true)
+            const token = await getAuthToken()
+            saveTokenToLocalStorage(token)
             await getAppInfo(pkgName)
         } else {
             throw new Error("Request failure.")
@@ -78,9 +76,7 @@ async function getAppDownloadUrl(version: string, pkgName: string) {
         throw new Error("No download link.")
     }
     const uriServer = uriServers[Math.floor(Math.random() * uriServers.length)]
-    const uri = uriServer + uriPath
-    console.log(`APK Download link: ${uri}`)
-    return uri
+    return uriServer + uriPath
 }
 
 waitForElement("a.btn-download")
@@ -94,7 +90,12 @@ async function getDownloadLink(downloadBtn: Element) {
         return
     }
     try {
-        await Authenticate()
+        header.Authorization = getTokenFromLocalStorage()
+        if (header.Authorization == "") {
+            const token = await getAuthToken()
+            saveTokenToLocalStorage(token)
+            header.Authorization = token
+        }
         const url = new URL(downloadBtn.getAttribute("href") as string)
         const pkgName: string = url.searchParams.get("packageName") as string
         const info = await getAppInfo(pkgName)
@@ -104,6 +105,7 @@ async function getDownloadLink(downloadBtn: Element) {
             return
         }
         const uri = await getAppDownloadUrl(info.version.code, pkgName)
+        console.log(`APK Download link: ${uri}`)
         downloadBtn.removeAttribute("onclick")
         downloadBtn.setAttribute("href", uri)
         btnSpan.textContent = `دانلود (${info.size.actual})`
