@@ -29,9 +29,10 @@ async function setup() {
 	let extensionPath = join(__dirname, "..", "dist")
 	console.log(extensionPath)
 	browser = await puppeteer.launch({
-		channel: "chrome",
+		executablePath: process.env.PUPPETEER_EXEC_PATH,
 		headless: false,
 		args: [
+			'--no-sandbox',
 			`--disable-extensions-except=${extensionPath}`,
 			`--load-extension=${extensionPath}`,
 		],
