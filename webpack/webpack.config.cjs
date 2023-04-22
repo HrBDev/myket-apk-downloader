@@ -4,11 +4,11 @@ const CopyPlugin = require("copy-webpack-plugin")
 module.exports = {
     mode: "production",
     entry: {
-        injectScript: path.resolve(__dirname, "..", "src", "injectScript.ts")
+        "content-script": path.resolve(__dirname, "..", "src", "content-script.ts")
     },
     output: {
         path: path.join(__dirname, "../dist"),
-        filename: "[name].js"
+        filename: "scripts/[name].js"
     },
     resolve: {
         extensions: [".ts", ".js"]
@@ -28,6 +28,6 @@ module.exports = {
         }),
     ],
     optimization: {
-        minimize: true
+        minimize: false
     }
 }
