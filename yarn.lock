@@ -185,9 +185,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@puppeteer/browsers@npm:0.4.1":
-  version: 0.4.1
-  resolution: "@puppeteer/browsers@npm:0.4.1"
+"@puppeteer/browsers@npm:0.5.0":
+  version: 0.5.0
+  resolution: "@puppeteer/browsers@npm:0.5.0"
   dependencies:
     debug: "npm:4.3.4"
     extract-zip: "npm:2.0.1"
@@ -204,7 +204,7 @@ __metadata:
       optional: true
   bin:
     browsers: lib/cjs/main-cli.js
-  checksum: 1bc4024a8ebf2d643538aa859ff4cef449fa34fa4c81e8718de709e67751074fcd5a9bec3a9b20a8ba74b8ffb568d59a388e60b6e16af78bb48b1c6ac81f57fc
+  checksum: 59e23526224f10bef012ce4c33a51481d0c47b1ff6554f8a1be21e9f77c26214aff6b331d2b1032aa142661656b71114a6db0a5a06891bff7990b4cb217f9096
   languageName: node
   linkType: hard
 
@@ -618,16 +618,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@webpack-cli/serve@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@webpack-cli/serve@npm:2.0.1"
+"@webpack-cli/serve@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@webpack-cli/serve@npm:2.0.2"
   peerDependencies:
     webpack: 5.x.x
     webpack-cli: 5.x.x
   peerDependenciesMeta:
     webpack-dev-server:
       optional: true
-  checksum: 1e2ddd0e6f35be8222c0cd3ccf1acd89684638dea03dddf139d5990afb614b5810720930c21d4c28b2b63ba1a8d14b22fecc6d0026f2c259c7b9663aa8bc3a66
+  checksum: 53ef6244d11b9b46d1fd164508496ce097fcfacc8d0812181255470d1175efd4ccc4bfd1d33d4ddf869183477f7832c538cefbf390301e014e327ea16d3ec703
   languageName: node
   linkType: hard
 
@@ -1145,17 +1145,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^10.0.1":
+  version: 10.0.1
+  resolution: "commander@npm:10.0.1"
+  checksum: b2a03d799104eac407ca031b94126c98198594fcff41554eb253cef748de57fb1a4cdd591baa075de589f2fddf1f968d1ecd1b79e8b47570ee441ab4f3363776
+  languageName: node
+  linkType: hard
+
 "commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: a6cb7ce73cc1db74a2da4bb6b4fc4f9a655ba35beb90f32bf5831d7d3be610dafc01dcc8a17f8204cf4e3f1f434d2115b7db56dfb0b827d42b10d1ba6ae8cbb4
-  languageName: node
-  linkType: hard
-
-"commander@npm:^9.4.1":
-  version: 9.5.0
-  resolution: "commander@npm:9.5.0"
-  checksum: 1d09146ccb60400550629bcded4b72eeb100728207ecb2538dd827b19571dc16d3b0ee5da762d9bdbbe680ed5cca6658cac5bfce262b1b73eabe5ef8c15cdd9d
   languageName: node
   linkType: hard
 
@@ -2533,11 +2533,11 @@ __metadata:
     eslint-config-prettier: "npm:^8.8.0"
     mocha: "npm:^10.2.0"
     prettier: "npm:^2.8.7"
-    puppeteer-core: "npm:^19.10.0"
+    puppeteer-core: "npm:^19.10.1"
     ts-loader: "npm:^9.4.2"
     typescript: "npm:^5.0.4"
     webpack: "npm:^5.79.0"
-    webpack-cli: "npm:^5.0.1"
+    webpack-cli: "npm:^5.0.2"
   languageName: unknown
   linkType: soft
 
@@ -2869,11 +2869,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^19.10.0":
-  version: 19.10.0
-  resolution: "puppeteer-core@npm:19.10.0"
+"puppeteer-core@npm:^19.10.1":
+  version: 19.10.1
+  resolution: "puppeteer-core@npm:19.10.1"
   dependencies:
-    "@puppeteer/browsers": "npm:0.4.1"
+    "@puppeteer/browsers": "npm:0.5.0"
     chromium-bidi: "npm:0.4.6"
     cross-fetch: "npm:3.1.5"
     debug: "npm:4.3.4"
@@ -2889,7 +2889,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 4a199e7ddab0fef28e0c7b9f098eba9c6176bc5e9e5fe0171fa85c07ba6e147e0d0ee484518d28b3f278e6f59cf83979af56cd81a5c6a4a0f880d4ab8263036f
+  checksum: 623d4e2b57dea54fff88cb46fe9b5ee1814c58c14b35bf8c0e0072ab5c74082de71832438d9e2c8d03bb887f8fa67174e67f337b56af41374b558c918cfddb63
   languageName: node
   linkType: hard
 
@@ -3543,16 +3543,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-cli@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "webpack-cli@npm:5.0.1"
+"webpack-cli@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "webpack-cli@npm:5.0.2"
   dependencies:
     "@discoveryjs/json-ext": "npm:^0.5.0"
     "@webpack-cli/configtest": "npm:^2.0.1"
     "@webpack-cli/info": "npm:^2.0.1"
-    "@webpack-cli/serve": "npm:^2.0.1"
+    "@webpack-cli/serve": "npm:^2.0.2"
     colorette: "npm:^2.0.14"
-    commander: "npm:^9.4.1"
+    commander: "npm:^10.0.1"
     cross-spawn: "npm:^7.0.3"
     envinfo: "npm:^7.7.3"
     fastest-levenshtein: "npm:^1.0.12"
@@ -3571,7 +3571,7 @@ __metadata:
       optional: true
   bin:
     webpack-cli: bin/cli.js
-  checksum: d8b36fcf7d3e39963fdeddc0de5566839fc5b524176f34a3dfe7bbf346e8deb5b9bc46785a75f9eb905916bb97a4a19da20dbe3aabdd74cf304d771070f322dc
+  checksum: f910169144d6e05aa701b08f761b0b277f77450c717349a1edb3abd08428b1e0d260762c5d79fcd840ce7dfea78c9dce2dbf4f441cac18465514e3cefc05c95d
   languageName: node
   linkType: hard
 
