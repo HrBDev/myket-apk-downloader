@@ -15,7 +15,7 @@
     "@types/chrome": "^0.0.233",
     "@types/mocha": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.1",
     "chai": "^4.3.7",
     "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.38.0",
