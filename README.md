@@ -1,7 +1,6 @@
 # About
 
-Reverse engineered Myket API that allows the download of APKs from the website instead of the official android app.
-
+This browser extension allows users to download APKs from the website using reverse-engineered Myket API, instead of the official Android app.
 Available
 on [Edge Addons](https://microsoftedge.microsoft.com/addons/detail/myket-apk-downloader/dpjcncnnibmchngbcpgdmacokbadibkd)
 and [Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/myket-apk-downloader-firefox/).
