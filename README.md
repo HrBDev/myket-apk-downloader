@@ -7,7 +7,7 @@ and [Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/myket-a
 
 # Requirements
 
-* Node.js 16.10+ or Install Corepack with `npm i -g corepack` on Older Node.js
+* Node.js 18.16+
 * Corepack (Enable by running `corepack enable` as superuser/admin)
 * yarn package manager (`corepack prepare yarn@<version> --activate`)
 
