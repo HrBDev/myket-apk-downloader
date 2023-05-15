@@ -599,13 +599,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@webpack-cli/configtest@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@webpack-cli/configtest@npm:2.0.1"
+"@webpack-cli/configtest@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@webpack-cli/configtest@npm:2.1.0"
   peerDependencies:
     webpack: 5.x.x
     webpack-cli: 5.x.x
-  checksum: 041d0fad6e9b296ceabeba3d4a9074937dcd6172ecc2470f3f8e4f3412b0c30e81e39cf7e2514dcb8551f28e79eef75b8bde9728a5dfb0133a4d32bd4b1ec42a
+  checksum: 7c0c762995c5da5a3aa18dd6475d4ff40262785fe82f6bda984677c2701552855611e33fa0f20e6fc4766b59a2d1ea65a4be34fef414e9735dc505907810b376
   languageName: node
   linkType: hard
 
@@ -619,16 +619,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@webpack-cli/serve@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "@webpack-cli/serve@npm:2.0.2"
+"@webpack-cli/serve@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@webpack-cli/serve@npm:2.0.4"
   peerDependencies:
     webpack: 5.x.x
     webpack-cli: 5.x.x
   peerDependenciesMeta:
     webpack-dev-server:
       optional: true
-  checksum: 53ef6244d11b9b46d1fd164508496ce097fcfacc8d0812181255470d1175efd4ccc4bfd1d33d4ddf869183477f7832c538cefbf390301e014e327ea16d3ec703
+  checksum: 8b8351bae6831057b1dcca535debcdc81af282fd3743d190686ad9f63e4b43c4d6f2cebe12a43bf956cac7b9c94435b243c6a72f4912b0c033b4cdd1eac29bdf
   languageName: node
   linkType: hard
 
@@ -2545,7 +2545,7 @@ __metadata:
     ts-loader: "npm:^9.4.2"
     typescript: "npm:^5.0.4"
     webpack: "npm:^5.79.0"
-    webpack-cli: "npm:^5.0.2"
+    webpack-cli: "npm:^5.1.1"
   languageName: unknown
   linkType: soft
 
@@ -3546,14 +3546,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-cli@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "webpack-cli@npm:5.0.2"
+"webpack-cli@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "webpack-cli@npm:5.1.1"
   dependencies:
     "@discoveryjs/json-ext": "npm:^0.5.0"
-    "@webpack-cli/configtest": "npm:^2.0.1"
+    "@webpack-cli/configtest": "npm:^2.1.0"
     "@webpack-cli/info": "npm:^2.0.1"
-    "@webpack-cli/serve": "npm:^2.0.2"
+    "@webpack-cli/serve": "npm:^2.0.4"
     colorette: "npm:^2.0.14"
     commander: "npm:^10.0.1"
     cross-spawn: "npm:^7.0.3"
@@ -3574,7 +3574,7 @@ __metadata:
       optional: true
   bin:
     webpack-cli: bin/cli.js
-  checksum: f910169144d6e05aa701b08f761b0b277f77450c717349a1edb3abd08428b1e0d260762c5d79fcd840ce7dfea78c9dce2dbf4f441cac18465514e3cefc05c95d
+  checksum: a563d2d6b6d4bc8f7e091b081773f64e094108af48cad6038edf050939f38e1d11873167252702166749a43e0287c811f5d094f6af4c260947619f9ce9dc3c8d
   languageName: node
   linkType: hard
 
