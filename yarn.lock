@@ -185,9 +185,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@puppeteer/browsers@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@puppeteer/browsers@npm:1.1.0"
+"@puppeteer/browsers@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@puppeteer/browsers@npm:1.2.0"
   dependencies:
     debug: "npm:4.3.4"
     extract-zip: "npm:2.0.1"
@@ -205,7 +205,7 @@ __metadata:
       optional: true
   bin:
     browsers: lib/cjs/main-cli.js
-  checksum: acd965418bf5b09ab3b3ed9e9ef9946bb4bc289d2c00be70d09b7403cbd652db9f67cb91abfdb9ec223933a0272aaef8862e22167f1b992959539a39872fd3a2
+  checksum: 30832312459a54fbc9714eb00902e23c055dbd3019c5bd4e962c20c9b1b601eada656d9bdb6fc2f84cc824665b902118261ac1b39d6c6dac4f2a93e77a56877c
   languageName: node
   linkType: hard
 
@@ -2541,7 +2541,7 @@ __metadata:
     eslint-config-prettier: "npm:^8.8.0"
     mocha: "npm:^10.2.0"
     prettier: "npm:^2.8.8"
-    puppeteer-core: "npm:^20.1.2"
+    puppeteer-core: "npm:^20.2.0"
     ts-loader: "npm:^9.4.2"
     typescript: "npm:^5.0.4"
     webpack: "npm:^5.79.0"
@@ -2877,11 +2877,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^20.1.2":
-  version: 20.1.2
-  resolution: "puppeteer-core@npm:20.1.2"
+"puppeteer-core@npm:^20.2.0":
+  version: 20.2.0
+  resolution: "puppeteer-core@npm:20.2.0"
   dependencies:
-    "@puppeteer/browsers": "npm:1.1.0"
+    "@puppeteer/browsers": "npm:1.2.0"
     chromium-bidi: "npm:0.4.7"
     cross-fetch: "npm:3.1.5"
     debug: "npm:4.3.4"
@@ -2892,7 +2892,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: fb14c9cb2b7676a73a3d3a2c8758284de2feb6e6fdf6e1947950ae17bfdf2c0d06e907c141fcd3d03b2a6895acf4b43c2859601912704a3c63d20709bc327367
+  checksum: 503c917288d548b1e66dd8fb4b4a7d75095a618c3a507f9fe401313152f70d897465ee3d90885a676b22d0af54b09e3dcb5f50570b0d8f6f62250376a16862a9
   languageName: node
   linkType: hard
 
