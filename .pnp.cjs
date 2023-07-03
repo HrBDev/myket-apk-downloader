@@ -38,7 +38,7 @@ const RAW_RUNTIME_STATE =
           ["mocha", "npm:10.2.0"],\
           ["prettier", "npm:2.8.8"],\
           ["puppeteer-core", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:20.4.0"],\
-          ["ts-loader", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:9.4.2"],\
+          ["ts-loader", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:9.4.4"],\
           ["typescript", "patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"],\
           ["webpack", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:5.86.0"],\
           ["webpack-cli", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:5.1.1"]\
@@ -3310,7 +3310,7 @@ const RAW_RUNTIME_STATE =
           ["mocha", "npm:10.2.0"],\
           ["prettier", "npm:2.8.8"],\
           ["puppeteer-core", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:20.4.0"],\
-          ["ts-loader", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:9.4.2"],\
+          ["ts-loader", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:9.4.4"],\
           ["typescript", "patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"],\
           ["webpack", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:5.86.0"],\
           ["webpack-cli", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:5.1.1"]\
@@ -4386,17 +4386,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["ts-loader", [\
-      ["npm:9.4.2", {\
-        "packageLocation": "./.yarn/cache/ts-loader-npm-9.4.2-ad41a3f9dc-c93a9c27f0.zip/node_modules/ts-loader/",\
+      ["npm:9.4.4", {\
+        "packageLocation": "./.yarn/cache/ts-loader-npm-9.4.4-f7a7993559-00fbdacdd6.zip/node_modules/ts-loader/",\
         "packageDependencies": [\
-          ["ts-loader", "npm:9.4.2"]\
+          ["ts-loader", "npm:9.4.4"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:9.4.2", {\
-        "packageLocation": "./.yarn/__virtual__/ts-loader-virtual-898315f8c9/0/cache/ts-loader-npm-9.4.2-ad41a3f9dc-c93a9c27f0.zip/node_modules/ts-loader/",\
+      ["virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:9.4.4", {\
+        "packageLocation": "./.yarn/__virtual__/ts-loader-virtual-56a527c82c/0/cache/ts-loader-npm-9.4.4-f7a7993559-00fbdacdd6.zip/node_modules/ts-loader/",\
         "packageDependencies": [\
-          ["ts-loader", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:9.4.2"],\
+          ["ts-loader", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:9.4.4"],\
           ["@types/typescript", null],\
           ["@types/webpack", null],\
           ["chalk", "npm:4.1.2"],\
