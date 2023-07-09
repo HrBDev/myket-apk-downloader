@@ -12,7 +12,8 @@
     "rootDir": "src",
     "outDir": "dist/js",
     "noEmitOnError": true,
-    "typeRoots": [
+	"skipLibCheck": true,
+	"typeRoots": [
       "node_modules/@types"
     ]
   }
