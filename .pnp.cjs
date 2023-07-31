@@ -27,7 +27,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@types/chai", "npm:4.3.5"],\
-          ["@types/chrome", "npm:0.0.241"],\
+          ["@types/chrome", "npm:0.0.242"],\
           ["@types/mocha", "npm:10.0.1"],\
           ["@typescript-eslint/eslint-plugin", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:6.0.0"],\
           ["@typescript-eslint/parser", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:6.0.0"],\
@@ -334,10 +334,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/chrome", [\
-      ["npm:0.0.241", {\
-        "packageLocation": "./.yarn/cache/@types-chrome-npm-0.0.241-4eefac5f97-2262c7d7fc.zip/node_modules/@types/chrome/",\
+      ["npm:0.0.242", {\
+        "packageLocation": "./.yarn/cache/@types-chrome-npm-0.0.242-f600d3c385-987be17ac2.zip/node_modules/@types/chrome/",\
         "packageDependencies": [\
-          ["@types/chrome", "npm:0.0.241"],\
+          ["@types/chrome", "npm:0.0.242"],\
           ["@types/filesystem", "npm:0.0.32"],\
           ["@types/har-format", "npm:1.2.10"]\
         ],\
@@ -3181,7 +3181,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["myket-apk-downloader-webpack", "workspace:."],\
           ["@types/chai", "npm:4.3.5"],\
-          ["@types/chrome", "npm:0.0.241"],\
+          ["@types/chrome", "npm:0.0.242"],\
           ["@types/mocha", "npm:10.0.1"],\
           ["@typescript-eslint/eslint-plugin", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:6.0.0"],\
           ["@typescript-eslint/parser", "virtual:5bcc450a5a428d6eb79cb2e403c6fe768d948d3d26a7553bad56f657b61db8a6c81cb1f9ffce0881a7a161d8a17bba6b812bc55ad04e1a72e3c40bd928c294bd#npm:6.0.0"],\
