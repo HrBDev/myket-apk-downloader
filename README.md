@@ -8,14 +8,13 @@ and [Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/myket-a
 # Requirements
 
 * Node.js 18.16+
-* Corepack (Enable by running `corepack enable` as superuser/admin)
-* yarn package manager (`corepack prepare yarn@<version> --activate`)
+* pnpm package manager([Installation Guide](https://pnpm.io/installaion))
 
 # Build instructions
 
  ```
- yarn install
- yarn run build 
+ pnpm install
+ pnpm run build 
  ```
 
 * in the dist folder:
