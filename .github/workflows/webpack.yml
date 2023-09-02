@@ -21,16 +21,34 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
+
+    -   uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+            version: 8
+            run_install: false
+
+    -   name: Get pnpm store directory
+        shell: bash
+        run: |
+            echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+    -   uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+            path: ${{ env.STORE_PATH }}
+            key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+            restore-keys: |
+                ${{ runner.os }}-pnpm-store-
 
     - name: Build
       run: |
-        yarn install --immutable
-        yarn run build
+        pnpm install 
+        pnpm run build
 
     - name: Test
       uses: HrBDev/puppeteer-headful@0dd63fdc6acd5f2c06589fd1dd9a40be79b360d9
       env:
           CI: "true"
       with:
-          args: yarn run test
+          args: pnpm run test

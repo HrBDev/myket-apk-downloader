@@ -10,7 +10,7 @@ import {
 
 waitForElement("a.btn-download")
     .then(replaceDownloadBtnHref)
-    .catch(_ => console.log("Could not find download button."))
+    .catch(() => console.log("Could not find download button."))
 
 async function replaceDownloadBtnHref(downloadBtn: Element) {
     const btnSpan = document.getElementById("basebtn")
