@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.3.5",
-    "@types/chrome": "^0.0.244",
+    "@types/chrome": "^0.0.245",
     "@types/mocha": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.5.0",
