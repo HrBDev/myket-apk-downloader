@@ -1,4 +1,4 @@
-import { header } from "./constants"
+import { headers } from "./constants"
 import {
     getAppDownloadUrl,
     getAppInfo,
@@ -7,6 +7,19 @@ import {
     saveTokenToLocalStorage,
     waitForElement,
 } from "./utils"
+
+const { fetch: originalFetch } = window
+window.fetch = async (...args) => {
+    const [resource, config] = args
+    const response = await originalFetch(resource, config)
+    if (!response.ok && response.status === 401) {
+        const token = await getAuthToken()
+        saveTokenToLocalStorage(token)
+        headers.set("Authorization", token)
+        return await originalFetch(resource, config)
+    }
+    return response
+}
 
 waitForElement("a.btn-download")
     .then(replaceDownloadBtnHref)
@@ -45,10 +58,10 @@ function extractPkgName(downloadBtn: Element) {
 }
 
 async function setHeaderAuth() {
-    header.Authorization = getTokenFromLocalStorage()
-    if (header.Authorization == "") {
+    headers.set("Authorization", getTokenFromLocalStorage())
+    if (headers.get("Authorization") == "") {
         const token = await getAuthToken()
         saveTokenToLocalStorage(token)
-        header.Authorization = token
+        headers.set("Authorization", token)
     }
 }

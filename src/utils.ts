@@ -56,15 +56,6 @@ async function getAuthToken() {
 async function getAppInfo(pkgName: string) {
     const infoUrl = `${v2BaseUrl}/${pkgName}/`
     const response = await fetch(infoUrl, requestInit)
-    if (!response.ok) {
-        if (response.status == 401) {
-            const token = await getAuthToken()
-            saveTokenToLocalStorage(token)
-            await getAppInfo(pkgName)
-        } else {
-            throw new Error("Request failure.")
-        }
-    }
     return (await response.json()) as V1ApiResponse
 }
 

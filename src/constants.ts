@@ -3,7 +3,7 @@ const v1BaseUrl = `${apiServerUrl}/v1/applications`
 const v2BaseUrl = `${apiServerUrl}/v2/applications`
 const authUrl = `${apiServerUrl}/v1/devices/authorize/`
 
-const header = {
+const headers = new Headers({
     "Content-Type": "application/json",
     Accept: "application/json",
     "Myket-Version": "914",
@@ -12,7 +12,7 @@ const header = {
     Host: "apiserver.myket.ir",
     Connection: "Keep-Alive",
     "Accept-Encoding": "gzip",
-}
+})
 
 const authBody = {
     acId: "",
@@ -38,7 +38,7 @@ const authBody = {
 
 const postRequestInit: RequestInit = {
     mode: "cors",
-    headers: header,
+    headers: headers,
     method: "POST",
     body: JSON.stringify(authBody),
 }
@@ -46,7 +46,7 @@ const postRequestInit: RequestInit = {
 const requestInit: RequestInit = {
     mode: "cors",
     method: "GET",
-    headers: header,
+    headers: headers,
 }
 
-export { v1BaseUrl, v2BaseUrl, authUrl, header, requestInit, postRequestInit }
+export { v1BaseUrl, v2BaseUrl, authUrl, headers, requestInit, postRequestInit }
