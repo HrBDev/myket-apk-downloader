@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Dependencies and configuration for building the extension",
   "scripts": {
+  	"dev": "webpack --watch -c webpack/webpack.config.cjs",
     "build": "webpack -c webpack/webpack.config.cjs",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "test": "mocha ./tests/test.js"
