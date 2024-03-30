@@ -12,7 +12,7 @@ describe("Extension Integration Testing", function () {
 	describe("App Page", async function () {
 		it("Check for a valid url", async function () {
 			const inputElement = await browserPage.waitForSelector(
-				"body > div.container > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > a",
+				"#mainInstall",
 			)
 			assert.ok(inputElement)
 			await browserPage.waitForTimeout(5000)
