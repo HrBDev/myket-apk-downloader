@@ -1,6 +1,7 @@
-const puppeteer = require("puppeteer-core")
-const { join } = require("path")
-const { expect, assert } = require("chai")
+import puppeteer from "puppeteer-core";
+import * as path from "path";
+import * as url from "url";
+import {expect, assert} from "chai";
 
 let browserPage = null
 let browser = null
@@ -15,7 +16,7 @@ describe("Extension Integration Testing", function () {
 				"#mainInstall",
 			)
 			assert.ok(inputElement)
-			await browserPage.waitForTimeout(5000)
+			await new Promise(r => setTimeout(r, 5000))
 			expect(await inputElement.evaluate(el => el.href)).match(
 				RegExp("^https:\\/\\/cdn[0-9]?[0-9]?[0-9]?\\.myket\\.ir"),
 			)
@@ -26,7 +27,9 @@ describe("Extension Integration Testing", function () {
 })
 
 async function setup() {
-	let extensionPath = join(__dirname, "..", "dist")
+    const __filename = url.fileURLToPath(import.meta.url);
+    const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+	let extensionPath = path.join(__dirname, "..", "dist")
 	console.log(extensionPath)
 	browser = await puppeteer.launch({
 		executablePath: process.env.PUPPETEER_EXEC_PATH,
