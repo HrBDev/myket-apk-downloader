@@ -53,5 +53,4 @@ jobs:
       env:
           CI: 'true'
       with:
-          commands: |
-              npm run test
+          args: npm test
