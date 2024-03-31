@@ -1,5 +1,6 @@
 {
   "name": "myket-apk-downloader-webpack",
+  "type": "module",
   "version": "0.1.0",
   "description": "Dependencies and configuration for building the extension",
   "scripts": {
