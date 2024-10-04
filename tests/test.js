@@ -18,7 +18,7 @@ describe("Extension Integration Testing", function () {
 			assert.ok(inputElement)
 			await new Promise(r => setTimeout(r, 5000))
 			expect(await inputElement.evaluate(el => el.href)).match(
-				RegExp("^https:\\/\\/cdn[0-9]?[0-9]?[[a-z]]?\\.myket\\.ir"),
+				RegExp("^https:\\/\\/cdn[0-9]?[0-9]?[a-z]?\\.myket\\.ir"),
 			)
 		})
 	})
