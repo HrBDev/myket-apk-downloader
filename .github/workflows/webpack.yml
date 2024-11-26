@@ -49,7 +49,7 @@ jobs:
         pnpm run build
 
     - name: Perform e2e tests with Headful Puppeteer
-      uses: HrBDev/puppeteer-headful@0dd63fdc6acd5f2c06589fd1dd9a40be79b360d9
+      uses: HrBDev/puppeteer-headful@674b338ea1c25f0ca89743e1365cd8c8eb63afcb
       env:
           CI: 'true'
       with:
