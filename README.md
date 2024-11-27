@@ -1,4 +1,4 @@
-![webpack workflow](https://github.com/HrBDev/myket-apk-downloader/actions/workflows/webpack.yml/badge.svg)
+[![webpack workflow](https://github.com/HrBDev/myket-apk-downloader/actions/workflows/webpack.yml/badge.svg)](https://github.com/HrBDev/myket-apk-downloader/actions/workflows/webpack.yml)
 
 # About
 
