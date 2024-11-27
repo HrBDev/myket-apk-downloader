@@ -1,3 +1,5 @@
+![webpack workflow](https://github.com/HrBDev/myket-apk-downloader/actions/workflows/webpack.yml/badge.svg)
+
 # About
 
 This browser extension allows users to download APKs from the website using reverse-engineered Myket API, instead of the official Android app.
