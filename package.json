@@ -14,7 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^5.0.1",
-    "@types/chrome": "^0.0.284",
+    "@types/chrome": "^0.1.11",
     "@types/mocha": "^10.0.9",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.16.0",
