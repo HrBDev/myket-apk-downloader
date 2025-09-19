@@ -27,7 +27,7 @@ jobs:
     -   uses: pnpm/action-setup@v3
         name: Install pnpm
         with:
-            version: 9
+            version: 10
             run_install: false
 
     -   name: Get pnpm store directory
@@ -49,8 +49,9 @@ jobs:
         pnpm run build
 
     - name: Perform e2e tests with Headful Puppeteer
-      uses: HrBDev/puppeteer-headful@674b338ea1c25f0ca89743e1365cd8c8eb63afcb
+      uses: HrBDev/puppeteer-headful@3a5cb7bf5f6b9e3b5025f34ca5f44a0252bf4af9
       env:
           CI: 'true'
+          DISPLAY: :99
       with:
           args: npm test
