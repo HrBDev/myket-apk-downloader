@@ -17,7 +17,7 @@ describe("Extension Integration Testing", function () {
 			assert.ok(inputElement)
 			await new Promise(r => setTimeout(r, 5000))
 			expect(await inputElement.evaluate(el => el.href)).match(
-				RegExp("^https:\\/\\/cdn[0-9]?[0-9]?[a-z]?\\.myket\\.ir"),
+				RegExp("^https:\\/\\/.{3}-data-\\d+\\.myket\\.ir"),
 			)
 		})
 	})
@@ -32,12 +32,12 @@ async function setup() {
 	browser = await puppeteer.launch({
 		executablePath: process.env.PUPPETEER_EXEC_PATH,
 		headless: false,
+		enableExtensions: [extensionPath],
+		pipe: true,
 		args: [
 			"--no-sandbox",
 			"--disable-setuid-sandbox",
 			"--font-render-hinting=none",
-			`--disable-extensions-except=${extensionPath}`,
-			`--load-extension=${extensionPath}`,
 		],
 	})
 
