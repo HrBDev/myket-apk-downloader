@@ -1,22 +1,23 @@
 {
-  "name": "Myket APK Downloader",
-  "version": "1.1.1",
-  "author": "Hamidreza Bayat <hamidrezabayat76@gmail.com>",
-  "description": "Download Myket apps from the browser",
-  "manifest_version": 3,
-  "content_scripts": [
-    {
-      "matches": [
-        "*://myket.ir/app/*"
-      ],
-      "js": [
-        "scripts/content-script.js"
-      ],
-      "run_at": "document_end"
-    }
-  ],
-  "icons": {
-    "48": "icons/48x48.png",
-    "96": "icons/96x96.png"
-  }
+	"name": "Myket APK Downloader",
+	"version": "1.1.1",
+	"author": "Hamidreza Bayat <hamidrezabayat76@gmail.com>",
+	"description": "Download Myket apps from the browser",
+	"manifest_version": 3,
+	"content_scripts": [
+		{
+			"matches": ["*://myket.ir/app/*"],
+			"js": ["scripts/content-script.js"],
+			"run_at": "document_end"
+		}
+	],
+	"action": {
+		"default_title": "Click Me",
+		"default_popup": "options.html"
+	},
+	"permissions": ["storage"],
+	"icons": {
+		"48": "icons/48x48.png",
+		"96": "icons/96x96.png"
+	}
 }

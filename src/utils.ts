@@ -1,6 +1,6 @@
 import {
     authUrl,
-    postRequestInit,
+    getPostRequestInit,
     requestInit,
     v1BaseUrl,
     v2BaseUrl,
@@ -43,6 +43,7 @@ function waitForElement(selector: string): Promise<Element> {
 }
 
 async function getAuthToken() {
+    const postRequestInit = await getPostRequestInit()
     const response = await fetch(authUrl, postRequestInit)
     if (!response.ok) {
         const { translatedMessage } =
