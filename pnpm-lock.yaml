@@ -24,8 +24,8 @@ importers:
         specifier: ^8.44.0
         version: 8.44.0(eslint@9.35.0)(typescript@5.9.2)
       chai:
-        specifier: ^6.0.1
-        version: 6.0.1
+        specifier: ^6.2.1
+        version: 6.2.1
       copy-webpack-plugin:
         specifier: ^13.0.1
         version: 13.0.1(webpack@5.101.3)
@@ -506,8 +506,8 @@ packages:
   caniuse-lite@1.0.30001679:
     resolution: {integrity: sha512-j2YqID/YwpLnKzCmBOS4tlZdWprXm3ZmQLBH9ZBXFOhoxLA46fwyBvx6toCBWBmnuwUY/qB3kEU6gFx8qgCroA==}
 
-  chai@6.0.1:
-    resolution: {integrity: sha512-/JOoU2//6p5vCXh00FpNgtlw0LjvhGttaWc+y7wpW9yjBm3ys0dI8tSKZxIOgNruz5J0RleccatSIC3uxEZP0g==}
+  chai@6.2.1:
+    resolution: {integrity: sha512-p4Z49OGG5W/WBCPSS/dH3jQ73kD6tiMmUM+bckNK6Jr5JHMG3k9bg/BvKR8lKmtVBKmOiuVaV2ws8s9oSbwysg==}
     engines: {node: '>=18'}
 
   chalk@4.1.2:
@@ -1969,7 +1969,7 @@ snapshots:
 
   caniuse-lite@1.0.30001679: {}
 
-  chai@6.0.1: {}
+  chai@6.2.1: {}
 
   chalk@4.1.2:
     dependencies:
