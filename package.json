@@ -24,7 +24,7 @@
 		"eslint-config-prettier": "^10.1.8",
 		"mocha": "^11.7.5",
 		"prettier": "^3.6.2",
-		"puppeteer-core": "^24.26.1",
+		"puppeteer-core": "^24.31.0",
 		"ts-loader": "^9.5.4",
 		"typescript": "^5.9.3",
 		"webpack": "^5.102.1",
