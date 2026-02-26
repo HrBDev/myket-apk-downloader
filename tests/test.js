@@ -1,4 +1,4 @@
-import puppeteer from "puppeteer-core"
+import puppeteer from "puppeteer"
 import * as path from "path"
 import * as url from "url"
 import { expect, assert } from "chai"
