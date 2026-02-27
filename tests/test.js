@@ -10,7 +10,7 @@ describe("Extension Integration Testing", function () {
 
 	before(async () => {
 		const __dirname = url.fileURLToPath(new URL(".", import.meta.url))
-		const extensionPath = path.join(__dirname, "..", "dist")
+		const extensionPath = path.join(__dirname, "..", "dist/chrome")
 		browser = await puppeteer.launch({
 			executablePath: process.env.PUPPETEER_EXEC_PATH,
 			headless: false,
