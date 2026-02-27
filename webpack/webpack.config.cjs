@@ -24,7 +24,12 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin({
-            patterns: [{ from: ".", to: ".", context: "public" }]
+            patterns: [
+                { from: ".", to: "./chrome", context: "public" },
+                { from: ".", to: "./firefox", context: "public_firefox" },
+                { from: "./scripts", to: "./chrome/scripts", context: "dist" },
+                { from: "./scripts", to: "./firefox/scripts", context: "dist" }
+            ]
         }),
     ],
     optimization: {
