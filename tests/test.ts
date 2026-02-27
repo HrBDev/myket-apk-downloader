@@ -1,3 +1,4 @@
+// @ts-ignore
 import {Browser, Page, launch, JSHandle} from "puppeteer"
 import * as path from "path"
 import * as url from "url"
