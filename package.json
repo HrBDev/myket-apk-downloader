@@ -7,7 +7,7 @@
 		"dev": "webpack --watch -c webpack/webpack.config.cjs",
 		"build": "webpack -c webpack/webpack.config.cjs",
 		"prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-		"test": "mocha ./tests/test.js"
+		"test": "mocha tests/test.ts"
 	},
 	"keywords": [],
 	"author": "Hamidreza Bayat <hamidrezabayat76@gmail.com>",
@@ -16,6 +16,7 @@
 		"@types/chai": "^5.2.3",
 		"@types/chrome": "^0.1.37",
 		"@types/mocha": "^10.0.10",
+		"@types/node": "^25.3.2",
 		"@typescript-eslint/eslint-plugin": "^8.56.1",
 		"@typescript-eslint/parser": "^8.56.1",
 		"chai": "^6.2.2",
@@ -27,8 +28,8 @@
 		"puppeteer": "^24.37.5",
 		"ts-loader": "^9.5.4",
 		"typescript": "^5.9.3",
+		"web-ext": "^9.3.0",
 		"webpack": "^5.105.3",
-		"webpack-cli": "^6.0.1",
-		"web-ext": "^9.3.0"
+		"webpack-cli": "^6.0.1"
 	}
 }

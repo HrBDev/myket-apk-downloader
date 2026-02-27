@@ -5,7 +5,7 @@
       "DOM"
     ],
     "strict": true,
-    "module": "ES2020",
+    "module": "Node16",
     "target": "ES2021",
     "esModuleInterop": true,
     "sourceMap": true,
