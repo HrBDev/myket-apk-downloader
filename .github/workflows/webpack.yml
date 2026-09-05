@@ -64,10 +64,6 @@ jobs:
           path: .cache/firefox-e2e/
           if-no-files-found: ignore
 
-    - name: Install Chrome for Puppeteer
-      if: matrix.browser == 'chrome'
-      run: pnpm exec puppeteer browsers install chrome --install-deps
-
     - name: Perform headless Chrome e2e tests
       if: matrix.browser == 'chrome'
       run: pnpm test
