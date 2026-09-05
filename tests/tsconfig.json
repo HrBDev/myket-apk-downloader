@@ -5,6 +5,7 @@
         "moduleResolution": "NodeNext",
         "rootDir": ".",
         "noEmit": true,
+        "allowImportingTsExtensions": true,
         "types": ["node", "mocha"],
         "verbatimModuleSyntax": true
     },
