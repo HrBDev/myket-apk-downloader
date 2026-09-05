@@ -1,7 +1,7 @@
 import {defineExtensionSuite } from "./extension-suite.ts"
 
 defineExtensionSuite("chrome", extensionPath => ({
-    executablePath: process.env.PUPPETEER_EXEC_PATH,
+    executablePath: process.env.PUPPETEER_EXEC_PATH || (process.env.CI ? "/usr/bin/google-chrome-stable" : undefined),
     headless: process.env.CHROME_HEADLESS !== "false",
     enableExtensions: [extensionPath],
     slowMo: 20,
