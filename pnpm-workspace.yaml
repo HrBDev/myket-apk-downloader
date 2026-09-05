@@ -1,2 +1,3 @@
-onlyBuiltDependencies:
-  - puppeteer
+allowBuilds:
+  puppeteer: true
+  spawn-sync: true
