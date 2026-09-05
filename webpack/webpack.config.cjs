@@ -4,11 +4,12 @@ const CopyPlugin = require("copy-webpack-plugin")
 module.exports = {
     mode: "production",
     entry: {
-        "content-script": path.resolve(__dirname, "..", "src", "content-script.ts")
+        "chrome/scripts/content-script": path.resolve(__dirname, "..", "src", "content-script.ts"),
+        "firefox/scripts/content-script": path.resolve(__dirname, "..", "src", "content-script.ts")
     },
     output: {
         path: path.join(__dirname, "../dist"),
-        filename: "scripts/[name].js"
+        filename: "[name].js"
     },
     resolve: {
         extensions: [".ts", ".js"]
@@ -26,9 +27,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: ".", to: "./chrome", context: "public" },
-                { from: ".", to: "./firefox", context: "public_firefox" },
-                { from: "./scripts", to: "./chrome/scripts", context: "dist" },
-                { from: "./scripts", to: "./firefox/scripts", context: "dist" }
+                { from: ".", to: "./firefox", context: "public_firefox" }
             ]
         }),
     ],

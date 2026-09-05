@@ -28,9 +28,7 @@ change.
  pnpm run build 
  ```
 
-* in the dist folder:
-    * For Firefox builds delete manifest.json and rename manifest_firefox.json to manifest.json.
-    * For Chromium based browser builds delete manifest_firefox.json.
+Builds are written to `dist/firefox` and `dist/chrome`, each with its own manifest.
 
 # TODO
 

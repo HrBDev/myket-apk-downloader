@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "webpack --watch -c webpack/webpack.config.cjs",
 		"build": "webpack -c webpack/webpack.config.cjs",
+		"build:zipped": "pnpm run build && web-ext build --source-dir dist/firefox --artifacts-dir dist/packages --filename myket-apk-downloader-firefox-{version}.zip --overwrite-dest && web-ext build --source-dir dist/chrome --artifacts-dir dist/packages --filename myket-apk-downloader-chrome-{version}.zip --overwrite-dest",
 		"prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
 		"test": "mocha tests/test.ts"
 	},
