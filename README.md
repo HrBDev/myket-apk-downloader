@@ -11,6 +11,15 @@ and [Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/myket-a
 
 Node.js 22.18+
 
+Puppeteer browser downloads are disabled during dependency installation. Install
+test browsers explicitly when needed:
+
+```sh
+pnpm exec puppeteer browsers install chrome
+pnpm exec puppeteer browsers install firefox
+```
+
+
 # How to run on Chromium
 1. `pnpm install`
 2. `pnpm run dev`
