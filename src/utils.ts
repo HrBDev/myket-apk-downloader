@@ -1,6 +1,7 @@
 import {
     authUrl,
     getPostRequestInit,
+    headers,
     requestInit,
     v1BaseUrl,
     v2BaseUrl,
@@ -56,7 +57,7 @@ async function getAuthToken() {
 
 async function getAppInfo(pkgName: string) {
     const infoUrl = `${v2BaseUrl}/${pkgName}/`
-    const response = await fetch(infoUrl, requestInit)
+    const response = await fetchWithAuth(infoUrl)
     return (await response.json()) as V1ApiResponse
 }
 
@@ -69,13 +70,27 @@ async function getAppDownloadUrl(version: string, pkgName: string) {
             fileType: "App",
             lang: "fa",
         }).toString()
-    const response = await fetch(v1Url, requestInit)
+    const response = await fetchWithAuth(v1Url)
     const { uriPath, uriServers } = (await response.json()) as V2ApiResponse
     if (!uriPath) {
         throw new Error("No download link.")
     }
     const uriServer = uriServers[Math.floor(Math.random() * uriServers.length)]
     return uriServer + uriPath
+}
+
+async function fetchWithAuth(url: string): Promise<Response> {
+    // Use the content-script global fetch; Firefox's window has a separate scope.
+    const response = await fetch(url, requestInit)
+    if (response.status !== 401) {
+        return response
+    }
+
+    // Authentication uses native fetch directly, and each API call retries once.
+    const token = await getAuthToken()
+    saveTokenToLocalStorage(token)
+    headers.set("Authorization", token)
+    return fetch(url, requestInit)
 }
 
 export {

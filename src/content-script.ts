@@ -8,19 +8,6 @@ import {
     waitForElement,
 } from "./utils"
 
-const { fetch: originalFetch } = window
-window.fetch = async (...args) => {
-    const [resource, config] = args
-    const response = await originalFetch(resource, config)
-    if (!response.ok && response.status === 401) {
-        const token = await getAuthToken()
-        saveTokenToLocalStorage(token)
-        headers.set("Authorization", token)
-        return await originalFetch(resource, config)
-    }
-    return response
-}
-
 waitForElement("a.btn-download")
     .then(replaceDownloadBtnHref)
     .catch(() => console.log("Could not find download button."))
