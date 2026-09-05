@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         node-version: [lts/*, latest]
+        browser: [chrome, firefox]
 
     steps:
     - uses: actions/checkout@v6
@@ -21,8 +23,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-      env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
 
     -   uses: pnpm/action-setup@v4
         name: Install pnpm
@@ -48,10 +48,26 @@ jobs:
         pnpm install 
         pnpm run build
 
-    - name: Perform e2e tests with Headful Puppeteer
-      uses: HrBDev/puppeteer-headful@3a5cb7bf5f6b9e3b5025f34ca5f44a0252bf4af9
-      env:
-          CI: 'true'
-          DISPLAY: :99
+    - name: Install Firefox for Puppeteer
+      if: matrix.browser == 'firefox'
+      run: pnpm exec puppeteer browsers install firefox
+
+    - name: Perform Firefox e2e tests
+      if: matrix.browser == 'firefox'
+      run: pnpm run test:firefox
+
+    - name: Upload Firefox failure screenshots
+      if: failure() && matrix.browser == 'firefox'
+      uses: actions/upload-artifact@v4
       with:
-          args: npm test
+          name: firefox-e2e-${{ strategy.job-index }}
+          path: .cache/firefox-e2e/
+          if-no-files-found: ignore
+
+    - name: Install Chrome for Puppeteer
+      if: matrix.browser == 'chrome'
+      run: pnpm exec puppeteer browsers install chrome --install-deps
+
+    - name: Perform headless Chrome e2e tests
+      if: matrix.browser == 'chrome'
+      run: pnpm test

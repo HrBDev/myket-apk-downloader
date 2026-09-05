@@ -8,7 +8,12 @@
 		"build": "webpack -c webpack/webpack.config.cjs",
 		"build:zipped": "pnpm run build && web-ext build --source-dir dist/firefox --artifacts-dir dist/packages --filename myket-apk-downloader-firefox-{version}.zip --overwrite-dest && web-ext build --source-dir dist/chrome --artifacts-dir dist/packages --filename myket-apk-downloader-chrome-{version}.zip --overwrite-dest",
 		"prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-		"test": "mocha tests/test.ts"
+		"test": "mocha tests/test.ts",
+		"typecheck": "tsc --noEmit && tsc -p tests/tsconfig.json",
+		"test:firefox": "pnpm run build && mocha tests/firefox.ts",
+		"test:local": "pnpm run build && node tests/local.mjs",
+		"test:local:chrome": "pnpm run build && node tests/local.mjs chrome",
+		"test:local:firefox": "pnpm run build && node tests/local.mjs firefox"
 	},
 	"keywords": [],
 	"author": "Hamidreza Bayat <hamidrezabayat76@gmail.com>",

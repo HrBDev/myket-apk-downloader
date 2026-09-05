@@ -1,5 +1,5 @@
-// @ts-ignore
-import {Browser, Page, launch, JSHandle} from "puppeteer"
+import {launch} from "puppeteer"
+import type {Browser, Page, JSHandle} from "puppeteer"
 import * as path from "path"
 import * as url from "url"
 import {expect, assert} from "chai"
@@ -14,7 +14,7 @@ describe("Extension Integration Testing", function () {
         const extensionPath = path.join(__dirname, "..", "dist/chrome")
         browser = await launch({
             executablePath: process.env.PUPPETEER_EXEC_PATH,
-            headless: false,
+            headless: process.env.CHROME_HEADLESS !== "false",
             enableExtensions: [extensionPath],
             slowMo: 20,
             defaultViewport: {width: 1280, height: 720, deviceScaleFactor: 1},

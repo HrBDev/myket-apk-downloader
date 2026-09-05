@@ -9,7 +9,7 @@ and [Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/myket-a
 
 # Requirements
 
-* Node.js 18.16+ or Bun 1+
+Node.js 22.18+
 
 # How to run on Chromium
 1. `pnpm install`
