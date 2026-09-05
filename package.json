@@ -5,6 +5,7 @@
 	"description": "Dependencies and configuration for building the extension",
 	"scripts": {
 		"dev": "webpack --watch -c webpack/webpack.config.cjs",
+		"dev:chrome": "web-ext run --target chromium --source-dir dist/chrome --start-url https://myket.ir/app/com.sibche.aspardproject.app",
 		"build": "webpack -c webpack/webpack.config.cjs",
 		"build:zipped": "pnpm run build && web-ext build --source-dir dist/firefox --artifacts-dir dist/packages --filename myket-apk-downloader-firefox-{version}.zip --overwrite-dest && web-ext build --source-dir dist/chrome --artifacts-dir dist/packages --filename myket-apk-downloader-chrome-{version}.zip --overwrite-dest",
 		"prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
