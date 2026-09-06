@@ -1,3 +1,5 @@
+declare const __API_SELECTOR_ENABLED__: boolean
+
 const apiServerUrl = "https://apiserver.myket.ir"
 const v1BaseUrl = `${apiServerUrl}/v1/applications`
 const v2BaseUrl = `${apiServerUrl}/v2/applications`
@@ -39,6 +41,14 @@ function getAuthBody(apiVersion: string) {
 }
 
 async function getPostRequestInit(): Promise<RequestInit> {
+    if (!__API_SELECTOR_ENABLED__) {
+        return {
+            mode: "cors",
+            headers: headers,
+            method: "POST",
+            body: JSON.stringify(getAuthBody("29")),
+        }
+    }
     return new Promise<RequestInit>(resolve => {
         chrome.storage.local.get(["apiVersion"], result => {
             const apiVersion =
