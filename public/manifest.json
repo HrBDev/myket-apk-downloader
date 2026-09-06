@@ -15,7 +15,6 @@
 		"default_title": "Click Me",
 		"default_popup": "options.html"
 	},
-	"permissions": ["storage"],
 	"icons": {
 		"48": "icons/48x48.png",
 		"96": "icons/96x96.png"

@@ -11,7 +11,7 @@
 			"run_at": "document_end"
 		}
 	],
-	"permissions": ["https://myket.ir/app/*", "https://apiserver.myket.ir/*", "storage"],
+	"permissions": ["https://myket.ir/app/*", "https://apiserver.myket.ir/*"],
 	"browser_specific_settings": {
 		"gecko": {
 			"strict_min_version": "102.0"
